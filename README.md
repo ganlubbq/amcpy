@@ -5,3 +5,4 @@ This is a experimental repository. While I am aiming to release a full package, 
 
 ##Dependency
 numpy
+matplotlib
