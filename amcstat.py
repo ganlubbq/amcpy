@@ -1,7 +1,7 @@
 # Some statistical functions used by amcpy package
 import numpy as np
 
-def likelihood(signal,alphabet,sigma):
+def likelihood(signal, alphabet, sigma):
     "Likelihood Function Calculate the log likelihood of signal belonging to a\
             set of bivariate normal distributions with specified\
             alphabet(means). and sigma(standard deviation)."
@@ -15,3 +15,21 @@ def likelihood(signal,alphabet,sigma):
         likelihood[iSignal] = np.mean(iLikelihood)
     likelihood = np.sum(np.log(likelihood))
     return likelihood
+
+def moment(signal, pth, qth):
+    "Calcuated high order moment of given signal after normalization"
+    signalNorm = signal-np.mean(signal)/np.std(signal)
+    moment = np.mean(signalNorm**pth * np.conj(signalNorm)**qth)
+    return moment
+
+def cumulant(signal, pth, qth):
+    "Calcuated high order cumulant of given signal after normalization"
+    signalNorm = signal-np.mean(signal)/np.std(signal)
+    moment = np.zeros(pth,qth)
+    for ith in range(pth):
+        for jth in range(qth):
+            moment[ith,jth] = np.mean(signalNorm**pth * np.conj(signalNorm)**qth)
+    
+    return moment
+
+
