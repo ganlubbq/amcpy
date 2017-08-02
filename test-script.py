@@ -16,7 +16,7 @@ sig4qam = amcgen.awgn(sig4qam, SNR)
 sig16qam = amcgen.awgn(sig16qam, SNR)
 
 # Plot signal constellation
-amcout.constplot(np.concatenate((sig4qam,sig16qam), axis=0),'Testing 4-QAM & 16-QAM Signals')
+#amcout.constplot(np.concatenate((sig4qam,sig16qam), axis=0),'Testing 4-QAM & 16-QAM Signals')
 
 # Testing Script
 modulationPool = ['4qam', '16qam']
