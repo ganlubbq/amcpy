@@ -4,7 +4,7 @@ def getsymbol(modulationType):
     "GETALPHABET    Generate set of alphabet according to modulation type."
     # Create basic mapping of signal symbols
     if modulationType == '2pam':
-        symbolMap = np.matrix('1, 0')
+        symbolMap = np.mat('1, -1')
     elif modulationType == '4pam':
         symbolMap = np.mat('-3, -1, 1, 3')
     elif modulationType == '8pam':
